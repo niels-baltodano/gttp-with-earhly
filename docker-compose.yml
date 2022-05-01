@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  graalvm:
+    image: niels58/graalvm-gttp:v1
+    build:
+      context: .
+    ports:
+      - "8080:8080" 

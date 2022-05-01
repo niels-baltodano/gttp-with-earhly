@@ -40,8 +40,8 @@ $ native-image --allow-incomplete-classpath \
   --no-fallback \
   --no-server \
   -H:ConfigurationFileDirectories=conf/ \
-  -cp ".:$GROOVY_HOME/lib/groovy-3.0.5.jar" \ 
-  gttp
+  -H:+ReportExceptionStackTraces \
+  -cp ".:$GROOVY_HOME/lib/groovy-3.0.5.jar" gttp
 ```
 
 ## Run `gttp` as a standalone executable file
@@ -72,4 +72,13 @@ and generate standalone executable file using `native-image` tool.
 
 ```
 $ sh ./build-with-docker.sh
+```
+
+## Create container image with earthly 
+  https://earthly.dev/
+```sh
+  earthly +build
+  earthly +docker
+  docker-compose up -d && \ 
+  docker-compose logs -f
 ```
